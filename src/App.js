@@ -1,14 +1,14 @@
 import React from 'react';
 import Messages from './components/Messages';
-import Text from './components/Text';
-import Send from './components/Send';
+import LogOut from './components/LogOut';
+import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
+import Redirect from './components/Redirect';
 import axios from 'axios';
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-
 
 const data = () => {
   axios.get('http://localhost:3030/api')
@@ -17,12 +17,27 @@ const data = () => {
   })
 }
 const router = createBrowserRouter([
-{
+// {
+//   path: "/",
+//   element: <div>{data()}</div>,
+// },{
+  {
   path: "/",
-  // element: <div>Hello world!</div>,
-  element: <div>{data()}</div>,
-  // render: () => {data()},
+  element: <Redirect/>
+  },{
+  path: "/SignIn",
+  element: <SignIn/>,
+},{
+  path: "/SignUp",
+  element: <SignUp/>,
 },
+{
+  path: "/Messages",
+  element: <Messages/>,
+},{
+  path: "logOut",
+  elemtent: <LogOut/>,
+}
 ]);
 
 function App() {
@@ -39,15 +54,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Routes>
-          <Route path="/" element={<Messages/>}></Route>
-          <Route path="/login" element={<SignIn/>}></Route>
-      {/* <form>
-        <Text UpdateState={UpdateState} Text={text}/>
-        <Send SendData={SendData}/>
-      </form> */}
-
-      {/* </Routes> */} 
       <RouterProvider router={router} />
     </div>
   );

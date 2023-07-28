@@ -5,56 +5,56 @@ import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
 import Redirect from './components/Redirect';
 import axios from 'axios';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import {createRoot ,BrowserRouter,Routes,Route} from "react-router-dom";
 
-const data = () => {
-  axios.get('http://localhost:3030/api')
-  .then((response) => {
-    console.log(response.data)
-  })
-}
-const router = createBrowserRouter([
-// {
+// const data = () => {
+//   axios.get('http://localhost:3030/api')
+//   .then((response) => {
+//     console.log(response.data)
+//   })
+// }
+// const router = createBrowserRouter([
+// // {
+// //   path: "/",
+// //   element: <div>{data()}</div>,
+// // },{
+//   {
 //   path: "/",
-//   element: <div>{data()}</div>,
+//   element: <Redirect/>
+//   },{
+//   path: "/SignIn",
+//   element: <SignIn/>,
 // },{
-  {
-  path: "/",
-  element: <Redirect/>
-  },{
-  path: "/SignIn",
-  element: <SignIn/>,
-},{
-  path: "/SignUp",
-  element: <SignUp/>,
-},
-{
-  path: "/Messages",
-  element: <Messages/>,
-},{
-  path: "logOut",
-  elemtent: <LogOut/>,
-}
-]);
+//   path: "/SignUp",
+//   element: <SignUp/>,
+// },
+// {
+//   path: "/Messages",
+//   element: <Messages/>,
+// },{
+//   path: "logOut",
+//   elemtent: <LogOut/>,
+// }
+// ]);
 
 function App() {
-  const [text, setText] = React.useState('');
+  // const [text, setText] = React.useState('');
 
-  const UpdateState = (e) => {
-    setText(e.target.value);
-  }
+  // const UpdateState = (e) => {
+  //   setText(e.target.value);
+  // }
 
-  const SendData = () => {
-    setText('')
-    console.log(text)
-  }
+  // const SendData = () => {
+  //   setText('')
+  //   console.log(text)
+  // }
 
   return (
     <div className="App">
-      <RouterProvider router={router} />
+      {/* <RouterProvider router={router} /> */}
+      <BrowserRouter>
+
+      </BrowserRouter>
     </div>
   );
 }
